@@ -78,7 +78,7 @@ const players = [
 const currentPage = document.location.href
 
 
-if (currentPage.endsWith('enter.html') || currentPage.endsWith('index.html')){
+if (currentPage.endsWith('SouthPark.io/')){
     //get the characters in the DOM
     const kyle = document.getElementById('kyle');
     const kenny = document.getElementById('kenny');
