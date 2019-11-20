@@ -77,7 +77,6 @@ const players = [
 
 const currentPage = document.location.href
 
-
 if (currentPage.includes('character') || currentPage.includes('index')){
     //get the characters in the DOM
     const kyle = document.getElementById('kyle');
