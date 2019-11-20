@@ -78,7 +78,7 @@ const players = [
 const currentPage = document.location.href
 
 
-if (currentPage.endsWith('enter.html') || currentPage.endsWith('index.html')){
+if (currentPage.includes('enter') || currentPage.endsWith('index')){
     //get the characters in the DOM
     const kyle = document.getElementById('kyle');
     const kenny = document.getElementById('kenny');
@@ -162,7 +162,7 @@ let firstCard, secondCard;
 //A qui le tour? true = joueur 1 / false = joueur 2
 let whosTurn = true;
 
-if (currentPage.endsWith('game.html')){
+if (currentPage.includes('game')){
 
     const players = JSON.parse(localStorage.getItem('player'))
 
