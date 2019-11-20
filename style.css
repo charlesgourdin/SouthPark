@@ -297,6 +297,7 @@ font-style: normal;
     animation: opacity 1.5s infinite;
     font-family: 'outrunfuture';
     letter-spacing: 0.1em;
+    white-space: nowrap;
 }
 
 #yourTurn1{
