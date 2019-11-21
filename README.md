@@ -3,4 +3,7 @@
 ### Click here to play : https://charlesgourdin.github.io/SouthPark.io/
 
 Memory game on the theme of South Park, made in HTML / CSS / JS Vanilla @ Wild Code School Lyon !
-Memory game on the theme of South Park, made in HTML / CSS / JS Vanilla @ Wild Code School Lyon !
+
+### All contributors
+
+@all-contributors please add @Ma-ho
