@@ -365,3 +365,5 @@ if (currentPage.includes('game')){
     
 
 }
+
+//End of script
