@@ -5,5 +5,3 @@
 Memory game on the theme of South Park, made in HTML / CSS / JS Vanilla @ Wild Code School Lyon !
 
 ### All contributors
-
-@all-contributors please add @Ma-ho
