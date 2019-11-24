@@ -90,14 +90,14 @@ if (currentPage.includes('character') || currentPage.includes('index')){
     const mystery = document.getElementById('mystery');
 
     // attributes characters 
-    kyle.addEventListener('touchend', () => cb(0));
-    kenny.addEventListener('touchend', () => cb(1));
-    cartman.addEventListener('touchend', () => cb(2));
-    stan.addEventListener('touchend', () => cb(3));
-    chef.addEventListener('touchend', () => cb(4));
-    towelie.addEventListener('touchend', () => cb(5));
-    timmy.addEventListener('touchend', () => cb(6));
-    mystery.addEventListener('touchend',() => cb(randomMystery(7,9)));
+    kyle.addEventListener('mouseup', () => cb(0));
+    kenny.addEventListener('mouseup', () => cb(1));
+    cartman.addEventListener('mouseup', () => cb(2));
+    stan.addEventListener('mouseup', () => cb(3));
+    chef.addEventListener('mouseup', () => cb(4));
+    towelie.addEventListener('mouseup', () => cb(5));
+    timmy.addEventListener('mouseup', () => cb(6));
+    mystery.addEventListener('mouseup',() => cb(randomMystery(7,9)));
 
     //mystery characters 
     function randomMystery(min, max) {
@@ -116,7 +116,7 @@ if (currentPage.includes('character') || currentPage.includes('index')){
             players[0].sound = characters[i].sound;
             document.getElementById('img_player_one').src = players[0].picturePlayer // je change l'image du person choisi
             document.getElementById('name_player_one').innerText = players[0].name // je change le nom du perso choisi
-            turn[0].addEventListener("touchend", () => { // au clique du btn_ready le bouton devient vert, et c'est au tour du joueur deux de choisir son perso
+            turn[0].addEventListener("click", () => { // au clique du btn_ready le bouton devient vert, et c'est au tour du joueur deux de choisir son perso
                 players[0].sound.play()
                 playerTurn++;
                 document.getElementById('btn_player_one').style.background = "url('images/btn_player_one_current.png')no-repeat";  
@@ -127,7 +127,7 @@ if (currentPage.includes('character') || currentPage.includes('index')){
             players[1].sound = characters[i].sound;
             document.getElementById('img_player_two').src = players[1].picturePlayer
             document.getElementById('name_player_two').innerText = players[1].name
-            turn[1].addEventListener("touchend", () => {
+            turn[1].addEventListener("click", () => {
                 players[1].sound.play()
                 playerTurn++;
                 document.getElementById('btn_player_two').style.background = "url('images/btn_player_two_current.png')no-repeat";  
@@ -257,10 +257,11 @@ if (currentPage.includes('game')){
 
     //Attribu à chaque carte l'event touchend associé à la fonction flipcard
     cards.forEach(card => card.addEventListener('touchend' , flipCard, false))
-    cards.forEach(card => card.addEventListener('click' , flipCard, false))
+    cards.forEach(card => card.addEventListener('mouseup' , flipCard, false))
 
     //Fonction touchend fait retourner carte
-    function flipCard() {
+    function flipCard(event) {
+        event.preventDefault();
         if (this.className!='memory-card flip'){
             this.classList.add('flip');
 
@@ -317,7 +318,7 @@ if (currentPage.includes('game')){
         }
         else {
             cards.forEach(card => card.removeEventListener('touchend' , flipCard, false))
-            cards.forEach(card => card.removeEventListener('click' , flipCard, false))//empeche de retourner d'autres cartes
+            cards.forEach(card => card.removeEventListener('mouseup' , flipCard, false))//empeche de retourner d'autres cartes
             unflipcards()
             whosTurn = !whosTurn;
             }
@@ -339,8 +340,8 @@ if (currentPage.includes('game')){
     function disableCards() { 
         firstCard.removeEventListener('touchend', flipCard, false);
         secondCard.removeEventListener('touchend', flipCard, false); 
-        firstCard.removeEventListener('click', flipCard, false);
-        secondCard.removeEventListener('click', flipCard, false); 
+        firstCard.removeEventListener('mouseup', flipCard, false);
+        secondCard.removeEventListener('mouseup', flipCard, false); 
     }
 
     //Fonction qui permet de retourner les deux cartes si elles ne correspondent pas
@@ -349,7 +350,7 @@ if (currentPage.includes('game')){
             firstCard.classList.remove('flip');
             secondCard.classList.remove('flip');
             cards.forEach(card => card.addEventListener('touchend' , flipCard, false));//Permet à nouveau de retourner les cartes
-            cards.forEach(card => card.addEventListener('click', flipCard, false))
+            cards.forEach(card => card.addEventListener('mouseup', flipCard, false))
         }, 1200);
     }
 
@@ -359,7 +360,7 @@ if (currentPage.includes('game')){
 
     //Mode triche
     let countForCheat = 0
-    document.getElementById("KO").addEventListener('click', function(){
+    document.getElementById("KO").addEventListener('mouseup', function(){
         countForCheat += 1
         console.log(countForCheat)
         if (countForCheat === 10) {
