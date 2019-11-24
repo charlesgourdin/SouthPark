@@ -345,9 +345,9 @@ font-style: normal;
 }
 
 /* Effet de rétrécissement sur la carte côté face */
-.memory-card:active{
+/* .memory-card:active{
 transform: scale(.90);
-}
+} */
 
 /* Effet de rotation de la carte à 180° */
 .memory-card.flip{
