@@ -90,14 +90,14 @@ if (currentPage.includes('character') || currentPage.includes('index')){
     const mystery = document.getElementById('mystery');
 
     // attributes characters 
-    kyle.addEventListener('click', () => cb(0));
-    kenny.addEventListener('click', () => cb(1));
-    cartman.addEventListener('click', () => cb(2));
-    stan.addEventListener('click', () => cb(3));
-    chef.addEventListener('click', () => cb(4));
-    towelie.addEventListener('click', () => cb(5));
-    timmy.addEventListener('click', () => cb(6));
-    mystery.addEventListener('click',() => cb(randomMystery(7,9)));
+    kyle.addEventListener('touchstart', () => cb(0));
+    kenny.addEventListener('touchstart', () => cb(1));
+    cartman.addEventListener('touchstart', () => cb(2));
+    stan.addEventListener('touchstart', () => cb(3));
+    chef.addEventListener('touchstart', () => cb(4));
+    towelie.addEventListener('touchstart', () => cb(5));
+    timmy.addEventListener('touchstart', () => cb(6));
+    mystery.addEventListener('touchstart',() => cb(randomMystery(7,9)));
 
     //mystery characters 
     function randomMystery(min, max) {
@@ -116,7 +116,7 @@ if (currentPage.includes('character') || currentPage.includes('index')){
             players[0].sound = characters[i].sound;
             document.getElementById('img_player_one').src = players[0].picturePlayer // je change l'image du person choisi
             document.getElementById('name_player_one').innerText = players[0].name // je change le nom du perso choisi
-            turn[0].addEventListener("click", () => { // au clique du btn_ready le bouton devient vert, et c'est au tour du joueur deux de choisir son perso
+            turn[0].addEventListener("touchstart", () => { // au clique du btn_ready le bouton devient vert, et c'est au tour du joueur deux de choisir son perso
                 players[0].sound.play()
                 playerTurn++;
                 document.getElementById('btn_player_one').style.background = "url('images/btn_player_one_current.png')no-repeat";  
@@ -127,7 +127,7 @@ if (currentPage.includes('character') || currentPage.includes('index')){
             players[1].sound = characters[i].sound;
             document.getElementById('img_player_two').src = players[1].picturePlayer
             document.getElementById('name_player_two').innerText = players[1].name
-            turn[1].addEventListener("click", () => {
+            turn[1].addEventListener("touchstart", () => {
                 players[1].sound.play()
                 playerTurn++;
                 document.getElementById('btn_player_two').style.background = "url('images/btn_player_two_current.png')no-repeat";  
@@ -255,16 +255,17 @@ if (currentPage.includes('game')){
     randomCarte(frontFace, data);
 
 
-    //Attribu à chaque carte l'event Click associé à la fonction flipcard
+    //Attribu à chaque carte l'event touchstart associé à la fonction flipcard
+    cards.forEach(card => card.addEventListener('touchstart' , flipCard))
     cards.forEach(card => card.addEventListener('click' , flipCard))
 
-    //Fonction click fait retourner carte
+    //Fonction touchstart fait retourner carte
     function flipCard() {
         if (this.className!='memory-card flip'){
             this.classList.add('flip');
 
             if (!hasFlippedCard) {
-                // first click
+                // first touchstart
                 hasFlippedCard = true;
                 firstCard = this;
                 
@@ -315,6 +316,7 @@ if (currentPage.includes('game')){
             }
         }
         else {
+            cards.forEach(card => card.removeEventListener('touchstart' , flipCard))
             cards.forEach(card => card.removeEventListener('click' , flipCard))//empeche de retourner d'autres cartes
             unflipcards()
             whosTurn = !whosTurn;
@@ -335,6 +337,8 @@ if (currentPage.includes('game')){
   
     //Fonction qui permet de laisser fixe les deux cartes si elles correspondent ???
     function disableCards() { 
+        firstCard.removeEventListener('touchstart', flipCard);
+        secondCard.removeEventListener('touchstart', flipCard); 
         firstCard.removeEventListener('click', flipCard);
         secondCard.removeEventListener('click', flipCard); 
     }
@@ -344,7 +348,8 @@ if (currentPage.includes('game')){
         setTimeout(() => {
             firstCard.classList.remove('flip');
             secondCard.classList.remove('flip');
-            cards.forEach(card => card.addEventListener('click' , flipCard));//Permet à nouveau de retourner les cartes
+            cards.forEach(card => card.addEventListener('touchstart' , flipCard));//Permet à nouveau de retourner les cartes
+            cards.forEach(card => card.addEventListener('click', flipCard))
         }, 1200);
     }
 
