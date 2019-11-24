@@ -25,7 +25,7 @@ img {
     max-width: 1200px;
     position: relative;
     width: 90%;
-    padding-top: 10%;
+    padding-top: 5%;
 }
 
 /* page enter.html * ---------------*/
@@ -185,7 +185,7 @@ font-style: normal;
 
 /* BLOC PLAYER ------------------------------------------*/
 #game {
-    padding-top: 56px;
+    padding-top: 5%;
     background: url(images/background_game.jpg) no-repeat;
     background-size: cover;
     height: 100vh;
@@ -217,9 +217,7 @@ font-style: normal;
 }
 
 #lifeZone{
-    margin-top: 56px;
     display: flex;
-    margin-bottom: 16px;
     align-items: center;
 }
 
@@ -332,7 +330,7 @@ font-style: normal;
 .memory-game{
     position: absolute;
     margin: auto;
-    padding-top: 450px;
+    padding-top: 400px;
     width: 90vw;
     height: 60vw;
     display: flex;
@@ -356,9 +354,9 @@ font-style: normal;
 }
 
 /* Effet de rétrécissement sur la carte côté face */
-.memory-card:active{
+/* .memory-card:active{
 transform: scale(.90);
-}
+} */
 
 /* Effet de rotation de la carte à 180° */
 .memory-card.flip{
