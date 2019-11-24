@@ -25,6 +25,7 @@ img {
     max-width: 1200px;
     position: relative;
     width: 90%;
+    padding-top: 10%;
 }
 
 /* page enter.html * ---------------*/
@@ -54,10 +55,12 @@ img {
     display: flex;
 }
 #characters_page h1 {
+    font-size: 16px;
     text-align: center;
     color: white;
     font-family: 'outrunfuture';
     letter-spacing: 0.08em;
+    margin: 0;
 }
 #btn_player_one {
     background: url(images/btn_player_one.png) no-repeat;
@@ -92,20 +95,21 @@ img {
     padding: 30px 0px;
     text-decoration: none;
     display: none;
+    z-index: 1;
 }
 #players {
-    height: 380px;
+    height: 200px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: flex-end;
+    align-items: flex-start;
     margin-bottom: 40px;
 }
 #players p {
     align-self: center;
     font-family: 'outrunfuture';
     color: #E51E35;
-    font-size: 4em;
+    font-size: 2em;
 }
 #players .your_choice {
     width: 40%;
@@ -114,25 +118,25 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transform: scale(0.7);
 }
 #players .your_choice h2 {
     font-family: 'southpark';
     color: white;
 }
 #all_characters {
+    margin-top: 100px;
     display: flex; 
     justify-content: center;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    margin: 0 auto;
-    position: relative;
 }
 #all_characters img {
     border: 5px solid #FFE42F;
-    margin: 10px;
-    padding: 5px;
+    margin: 8px;
+    width: 15%;
 }
 #all_characters img:first-child {
     transform: perspective(350px) rotateY(-10deg);
