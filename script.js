@@ -132,6 +132,7 @@ if (currentPage.includes('character') || currentPage.includes('index')){
                 playerTurn++;
                 document.getElementById('btn_player_two').style.background = "url('images/btn_player_two_current.png')no-repeat";  
                 document.getElementById('btn_play').style.display = 'block';
+                document.getElementById('all_characters').style.display = 'none';
             });
         } 
     }
