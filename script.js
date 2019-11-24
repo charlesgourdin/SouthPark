@@ -256,8 +256,8 @@ if (currentPage.includes('game')){
 
 
     //Attribu à chaque carte l'event touchstart associé à la fonction flipcard
-    cards.forEach(card => card.addEventListener('touchstart' , flipCard))
-    cards.forEach(card => card.addEventListener('click' , flipCard))
+    cards.forEach(card => card.addEventListener('touchstart' , flipCard, false))
+    cards.forEach(card => card.addEventListener('click' , flipCard, false))
 
     //Fonction touchstart fait retourner carte
     function flipCard() {
@@ -316,8 +316,8 @@ if (currentPage.includes('game')){
             }
         }
         else {
-            cards.forEach(card => card.removeEventListener('touchstart' , flipCard))
-            cards.forEach(card => card.removeEventListener('click' , flipCard))//empeche de retourner d'autres cartes
+            cards.forEach(card => card.removeEventListener('touchstart' , flipCard, false))
+            cards.forEach(card => card.removeEventListener('click' , flipCard, false))//empeche de retourner d'autres cartes
             unflipcards()
             whosTurn = !whosTurn;
             }
@@ -337,10 +337,10 @@ if (currentPage.includes('game')){
   
     //Fonction qui permet de laisser fixe les deux cartes si elles correspondent ???
     function disableCards() { 
-        firstCard.removeEventListener('touchstart', flipCard);
-        secondCard.removeEventListener('touchstart', flipCard); 
-        firstCard.removeEventListener('click', flipCard);
-        secondCard.removeEventListener('click', flipCard); 
+        firstCard.removeEventListener('touchstart', flipCard, false);
+        secondCard.removeEventListener('touchstart', flipCard, false); 
+        firstCard.removeEventListener('click', flipCard, false);
+        secondCard.removeEventListener('click', flipCard, false); 
     }
 
     //Fonction qui permet de retourner les deux cartes si elles ne correspondent pas
@@ -348,8 +348,8 @@ if (currentPage.includes('game')){
         setTimeout(() => {
             firstCard.classList.remove('flip');
             secondCard.classList.remove('flip');
-            cards.forEach(card => card.addEventListener('touchstart' , flipCard));//Permet à nouveau de retourner les cartes
-            cards.forEach(card => card.addEventListener('click', flipCard))
+            cards.forEach(card => card.addEventListener('touchstart' , flipCard, false));//Permet à nouveau de retourner les cartes
+            cards.forEach(card => card.addEventListener('click', flipCard, false))
         }, 1200);
     }
 
