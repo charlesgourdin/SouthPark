@@ -360,7 +360,9 @@ transform: scale(.90);
 
 /* Effet de rotation de la carte à 180° */
 .memory-card.flip{
-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 /* Taille & position des cartes face visible & cachée */
@@ -375,6 +377,8 @@ transform: rotateY(180deg);
 
 /* Affichage de la face cachée d'une carte */
 .front-face{
+    -ms-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
@@ -445,18 +449,28 @@ transform: rotateY(180deg);
 
 @keyframes shake {
     0%{
+        -ms-transform: translate(0px, 0px) rotate(0deg);
+        -webkit-transform: translate(0px, 0px) rotate(0deg);
         transform: translate(0px, 0px) rotate(0deg);
     }
     25%{
+        -ms-transform: translate(4px; 0px) rotate(1deg);
+        -webkit-transform: translate(4px; 0px) rotate(1deg);
         transform: translate(4px; 0px) rotate(1deg);
     }
     50%{
+        -ms-transform: translate(-4px, 0px) rotate(-1deg));
+        -webkit-transform: translate(-4px, 0px) rotate(-1deg));
         transform: translate(-4px, 0px) rotate(-1deg));
     }
     75%{
+        -ms-transform: translate(8px, 0px) rotate(2deg);
+        -webkit-transform: translate(8px, 0px) rotate(2deg);
         transform: translate(8px, 0px) rotate(2deg);
     }
     100%{
+        -ms-transform: translate(-4px, 0px) rotate(-1deg);
+        -webkit-transform: translate(-4px, 0px) rotate(-1deg);
         transform: translate(-4px, 0px) rotate(-1deg);
     }
  }
