@@ -345,6 +345,8 @@ font-style: normal;
     height: 35%;
     margin: 10px;
     position: relative;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
     transform: scale(1);
     transform-style: preserve-3d;
     transition: transform .10s;
